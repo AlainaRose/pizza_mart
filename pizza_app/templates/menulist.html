@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style type="text/css">
+          body
+            {
+               background:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx4StGzQJ_npBLsWrJsPeILSpF7Y9y746PH9hCwhooTfe7NLWpTw);
+            background-repeat: no-repeat;
+            background-size:cover;
+            }
+          .login
+            {
+              
+                background-color: #f2f2f2;
+                float: left;
+                min-height: 100px;
+                width: 360px;
+            }
+    </style>
+
+
+<body>
+<ul class="nav navbar-nav navbar-right">
+     
+      <li><a href="/login/"><span class="glyphicon glyphicon-user"></span> {{ user.username }}</a></li>
+      <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+  
+    </ul>
+
+   <form action="" method="post"></form>
+ 
+</div>
+  <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <b><a class="navbar-brand" href="">PIZZA MART</a></b>
+    </div>
+    <ul class="nav navbar-nav">
+     <li><a href="/home/">Home</a></li>
+      <li><a href="/listuser/">VIEW</a></li>
+      <li><a href="/createmenu/">ADD</a></li>
+      <li><a href="/listmenu/">UPDATE</a></li>
+      <li><a href="/listmenu/">DELETE</a></li>
+      
+   </ul>
+</nav>
+ 
+    <center><h1 style=color:red>Welcome to Admin Page</h1></center>
+<center>
+
+<table border=1, width="500">
+	<tr>
+	<th colspan="5"><center><h1>Menu List</h1></th></tr></center>
+	<th>item_name:</th>
+	<th>price</th>
+	<th>item_photo</th>
+	
+	
+	</tr>
+
+	
+	{% for x in object_list %}
+		<tr>
+		<td>{{x.item_name}}</td>
+		<td>{{x.price}}</td>
+		<td><img src="{{x.item_photo.url}}" height="100px" width="100px"></td>
+		<td><center><a href="{% url 'update' x.id %}"><button type="button">update</button></td></center>
+                
+</form>
+	
+		</tr>
+	{% endfor %}
+	
+
+</table>
+</center>
+</body>
+</html>
